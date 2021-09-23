@@ -17,6 +17,18 @@ function generatePassword() {
   var numbers = "0123456789"
   var specials = "!#$%&'()*+,-./:;<=>?@[]^_`{|}~"
 
+// check to see how many characters are to be used 8 to 128
+  var characterCount = prompt("How many characters would you like in your password?", "12")
+  if (characterCount < 8 || characterCount > 128 || false) {
+    alert("Please select a number from 8 to 128")
+    generatePassword()
+  } 
+
+
+
+
+}
+}
 
 
 // TODO: confirm that at lease one character type has been selected
