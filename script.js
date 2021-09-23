@@ -21,6 +21,7 @@ function generatePassword() {
   var characterCount = prompt("How many characters would you like in your password?", "12")
   if (characterCount < 8 || characterCount > 128) {
     alert("Please select a number from 8 to 128")
+    return
   } 
 
 
@@ -39,7 +40,18 @@ function generatePassword() {
     characters = characters.concat(specials)
   }
 
- 
+  console.log(characters.length)
+  // confirm that at lease one character type has been selected
+   if (characters == "") {
+     alert("please select at lease 1 character type")
+   }
+
+  // log to see what characters are being selected
+  console.log(characters)
+
+  password = ""
+  for (var i = 0; i < characterCount; i++){
+    password += characters.charAt(Math.floor(Math.random() * characters.length))
   }
  // after all criteria is selected a password should be generated and displayed 
  // in an alert or written to the page
@@ -48,15 +60,8 @@ function generatePassword() {
   console.log(password)
 
 return password
-
 }
 }
 
-
-
-        
-
-
-
-// Add event listener to generate button
+      // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
